@@ -8,9 +8,9 @@
             {{ range hugo.Data.research.categories }}
             <div class="major-card" data-target="{{ .id }}" data-title="{{ .title }}">
                 {{ if .image }}
-                <div class="major-img" style="background-image: url('/images/research/{{ .image }}'); background-size: cover; background-position: center;"></div>
+                <img class="major-img" src="/images/research/{{ .image }}" alt="{{ .title }}">
                 {{ else }}
-                <div class="major-img placeholder-gradient"></div>
+                <img class="major-img" src="/images/design-placeholder.png" alt="Research field">
                 {{ end }}
                 <div class="major-title">{{ .titleHtml | safeHTML }}</div>
             </div>
@@ -18,25 +18,27 @@
         </div>
     </div>
 
-    <div id="dynamic-banner" class="page-title-banner" style="display: none; margin-top: 60px;">
-        <h2 id="dynamic-title">Research Field</h2>
-    </div>
+    <div id="research-dropdown-wrapper" class="research-dropdown-wrapper">
+        <div id="dynamic-banner" class="page-title-banner" style="margin-top: 60px;">
+            <h2 id="dynamic-title">Research Field</h2>
+        </div>
 
-    <div class="container relative-container" id="project-grids-container" style="display: none;">
-        {{ range hugo.Data.research.categories }}
-        <div id="{{ .id }}" class="project-grid-section">
-            {{ range .projects }}
-            <div class="project-card">
-                {{ if .image }}
-                <div class="proj-img" style="background-image: url('/images/research/{{ .image }}'); background-size: cover; background-position: center;"></div>
-                {{ else }}
-                <div class="proj-img placeholder-gradient"></div>
+        <div class="container relative-container" id="project-grids-container">
+            {{ range hugo.Data.research.categories }}
+            <div id="{{ .id }}" class="project-grid-section">
+                {{ range .projects }}
+                <div class="project-card">
+                    {{ if .image }}
+                    <img class="proj-img" src="/images/research/{{ .image }}" alt="{{ .label }}">
+                    {{ else }}
+                    <img class="proj-img" src="/images/design-placeholder.png" alt="Research project">
+                    {{ end }}
+                    <div class="proj-label">{{ .label }}</div>
+                </div>
                 {{ end }}
-                <div class="proj-label">{{ .label }}</div>
             </div>
             {{ end }}
         </div>
-        {{ end }}
     </div>
 
     <div class="page-title-banner" style="margin-top: 60px;">
