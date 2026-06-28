@@ -41,37 +41,4 @@
         </div>
     </div>
 
-    <div class="page-title-banner" style="margin-top: 60px;">
-        <h2>Latest News</h2>
-    </div>
-
-    <div class="container relative-container">
-        <div class="news-grid">
-            {{ range $index, $item := hugo.Data.news }}
-            <div class="news-card" id="news-{{ add $index 1 }}">
-                <div class="news-card-preview">
-                    {{ if $item.image }}
-                    <div class="news-image" style="background-image: url('/images/news/{{ $item.image }}');"></div>
-                    {{ else }}
-                    <div class="news-image placeholder-gradient"></div>
-                    {{ end }}
-                    <div class="news-preview-content">
-                        <h3 class="news-title">{{ $item.title }}</h3>
-                        <p class="news-date">{{ $item.date }}</p>
-                    </div>
-                    <div class="news-expand-hint">
-                        <span class="news-expand-icon">+</span>
-                    </div>
-                </div>
-                <div class="news-card-body">
-                    <div class="news-body-inner">
-                        <div class="news-body-text">
-                            {{ $item.body | markdownify }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-    </div>
 </main>

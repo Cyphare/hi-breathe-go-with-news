@@ -295,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortConfirmBtn = document.getElementById('sortConfirmBtn');
     const searchInput = document.querySelector('.search-input');
     const searchConfirmBtn = document.getElementById('searchConfirmBtn');
+    const searchResetBtn = document.getElementById('searchResetBtn');
     const pubCards = document.querySelectorAll('.pub-card');
 
     const closeSortDropdown = () => {
@@ -312,6 +313,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const cardText = card.textContent.toLowerCase();
             card.style.display = query === '' || cardText.includes(query) ? '' : 'none';
         });
+
+        if (searchResetBtn) {
+            searchResetBtn.style.display = query === '' ? 'none' : 'inline-block';
+        }
     };
 
     if (sortBtn && sortDropdown) {
@@ -343,8 +348,66 @@ document.addEventListener('DOMContentLoaded', () => {
         setupSortGroup('sortOrder');
     }
 
+    const pubListContainer = document.querySelector('.pub-list');
+    let originalPubCards = [];
+    if (pubListContainer && pubCards.length > 0) {
+        originalPubCards = Array.from(pubCards);
+    }
+    const sortResetBtn = document.getElementById('sortResetBtn');
+
+    const applySort = () => {
+        if (!pubListContainer || originalPubCards.length === 0) return;
+
+        const sortTypeBtn = document.querySelector('#sortType .sort-option.active');
+        const sortOrderBtn = document.querySelector('#sortOrder .sort-option.active');
+        if (!sortTypeBtn || !sortOrderBtn) return;
+
+        const type = sortTypeBtn.textContent.trim().toLowerCase();
+        const order = sortOrderBtn.textContent.trim().toLowerCase();
+
+        const currentCards = Array.from(pubListContainer.querySelectorAll('.pub-card'));
+        currentCards.sort((a, b) => {
+            let valA = '', valB = '';
+            if (type === 'name') {
+                valA = (a.querySelector('.pub-title')?.textContent || '').toLowerCase();
+                valB = (b.querySelector('.pub-title')?.textContent || '').toLowerCase();
+            } else if (type === 'year' || type === 'date') {
+                valA = parseInt((a.querySelector('.pub-year')?.textContent || '').replace(/\D/g, '')) || 0;
+                valB = parseInt((b.querySelector('.pub-year')?.textContent || '').replace(/\D/g, '')) || 0;
+            }
+
+            if (valA < valB) return order === 'ascending' ? -1 : 1;
+            if (valA > valB) return order === 'ascending' ? 1 : -1;
+            return 0;
+        });
+
+        currentCards.forEach(card => pubListContainer.appendChild(card));
+    };
+
     if (sortConfirmBtn && sortDropdown) {
         sortConfirmBtn.addEventListener('click', () => {
+            applySort();
+            closeSortDropdown();
+        });
+    }
+
+    if (sortResetBtn && sortDropdown) {
+        sortResetBtn.addEventListener('click', () => {
+            if (pubListContainer && originalPubCards.length > 0) {
+                originalPubCards.forEach(card => pubListContainer.appendChild(card));
+            }
+            
+            const typeButtons = document.querySelectorAll('#sortType .sort-option');
+            if (typeButtons.length > 0) {
+                typeButtons.forEach(btn => btn.classList.remove('active'));
+                typeButtons[0].classList.add('active');
+            }
+            const orderButtons = document.querySelectorAll('#sortOrder .sort-option');
+            if (orderButtons.length > 1) {
+                orderButtons.forEach(btn => btn.classList.remove('active'));
+                orderButtons[1].classList.add('active');
+            }
+            
             closeSortDropdown();
         });
     }
@@ -356,6 +419,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.preventDefault();
                 applyPublicationSearch();
             }
+        });
+    }
+
+    if (searchResetBtn && searchInput) {
+        searchResetBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            if (pubCards && pubCards.length > 0) {
+                pubCards.forEach((card) => {
+                    card.style.display = '';
+                });
+            }
+            searchResetBtn.style.display = 'none';
         });
     }
 
