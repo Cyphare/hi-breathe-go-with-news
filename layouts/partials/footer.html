@@ -1,0 +1,20 @@
+<div class="footer-top">
+    <h2>Breathe Laboratory</h2>
+</div>
+<div class="footer-content">
+    <div class="footer-links">
+        {{ range .Site.Menus.footer }}
+        <a href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
+    </div>
+    <div class="footer-location">
+        <p><strong>Our Location:</strong><br>
+        Department of Electrical Engineering and Information Engineering<br>
+        Faculty of Engineering<br>
+        Universitas Gadjah Mada<br>
+        Yogyakarta, Indonesia</p>
+    </div>
+</div>
+<div class="footer-bottom">
+    <p>&copy; {{ now.Year }} Breathe Laboratory, DTETI FT UGM. All rights reserved.</p>
+</div>

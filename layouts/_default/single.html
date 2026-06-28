@@ -1,0 +1,17 @@
+{{ define "main" }}
+    {{ if eq .Params.layout "about" }}
+        {{ partial "pages/about.html" . }}
+    {{ else if eq .Params.layout "research" }}
+        {{ partial "pages/research.html" . }}
+    {{ else if eq .Params.layout "publication" }}
+        {{ partial "pages/publication.html" . }}
+    {{ else if eq .Params.layout "team" }}
+        {{ partial "pages/team.html" . }}
+    {{ else if eq .Params.layout "contact" }}
+        {{ partial "pages/contact.html" . }}
+    {{ else }}
+        <main class="container">
+            {{ .Content }}
+        </main>
+    {{ end }}
+{{ end }}

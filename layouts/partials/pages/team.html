@@ -1,0 +1,43 @@
+<div class="page-title-banner">
+    <h2>Team</h2>
+</div>
+
+<main class="container">
+
+    <section class="team-section">
+        <h3 class="section-title">Researchers</h3>
+        <div class="team-grid">
+            {{ range hugo.Data.team }}
+            <div class="profile-card">
+                <div class="profile-image-placeholder">
+                    <img src="/images/pic/{{ .image }}" alt="{{ .name }}">
+                </div>
+                <h4>{{ .fullTitle }}</h4>
+                <p class="profile-info">{{ .role }}</p>
+                <a class="profile-email" href="mailto:{{ .email }}">&#9993; {{ .email }}</a>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h3 class="section-title">Student Researchers</h3>
+        <div class="student-list">
+            {{ range hugo.Data.students }}
+            <div class="student-list-item">
+                <h4>{{ .name }}</h4>
+                <p class="profile-info">{{ .info }}</p>
+                <p class="profile-email">&#9993; {{ .email }}</p>
+            </div>
+            {{ end }}
+        </div>
+    </section>
+
+    <section class="team-cta-banner">
+        <h2><i>Build Impactful Technologies With Us</i></h2>
+        <p>From deep learning models to hardware prototypes. Bring your engineering skills to a<br>collaborative
+            environment designed for creators and problem solvers.</p>
+        <a href="/contact/" class="btn cta-btn-dark">Explore Opportunities</a>
+    </section>
+
+</main>

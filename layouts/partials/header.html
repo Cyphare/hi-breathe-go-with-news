@@ -1,0 +1,11 @@
+<div class="header-titles">
+    <h1><a href="/">Breathe Laboratory</a></h1>
+    <p>{{ .Site.Params.subtitle }}</p>
+</div>
+<nav>
+    <ul>
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}"><i>{{ .Name }}</i></a></li>
+        {{ end }}
+    </ul>
+</nav>

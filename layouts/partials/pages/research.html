@@ -1,0 +1,75 @@
+<div class="page-title-banner">
+    <h2>Research Field</h2>
+</div>
+
+<main class="research-main">
+    <div class="container relative-container">
+        <div class="major-categories">
+            {{ range hugo.Data.research.categories }}
+            <div class="major-card" data-target="{{ .id }}" data-title="{{ .title }}">
+                {{ if .image }}
+                <div class="major-img" style="background-image: url('/images/research/{{ .image }}'); background-size: cover; background-position: center;"></div>
+                {{ else }}
+                <div class="major-img placeholder-gradient"></div>
+                {{ end }}
+                <div class="major-title">{{ .titleHtml | safeHTML }}</div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+
+    <div id="dynamic-banner" class="page-title-banner" style="display: none; margin-top: 60px;">
+        <h2 id="dynamic-title">Research Field</h2>
+    </div>
+
+    <div class="container relative-container" id="project-grids-container" style="display: none;">
+        {{ range hugo.Data.research.categories }}
+        <div id="{{ .id }}" class="project-grid-section">
+            {{ range .projects }}
+            <div class="project-card">
+                {{ if .image }}
+                <div class="proj-img" style="background-image: url('/images/research/{{ .image }}'); background-size: cover; background-position: center;"></div>
+                {{ else }}
+                <div class="proj-img placeholder-gradient"></div>
+                {{ end }}
+                <div class="proj-label">{{ .label }}</div>
+            </div>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+
+    <div class="page-title-banner" style="margin-top: 60px;">
+        <h2>Latest News</h2>
+    </div>
+
+    <div class="container relative-container">
+        <div class="news-grid">
+            {{ range $index, $item := hugo.Data.news }}
+            <div class="news-card" id="news-{{ add $index 1 }}">
+                <div class="news-card-preview">
+                    {{ if $item.image }}
+                    <div class="news-image" style="background-image: url('/images/news/{{ $item.image }}');"></div>
+                    {{ else }}
+                    <div class="news-image placeholder-gradient"></div>
+                    {{ end }}
+                    <div class="news-preview-content">
+                        <h3 class="news-title">{{ $item.title }}</h3>
+                        <p class="news-date">{{ $item.date }}</p>
+                    </div>
+                    <div class="news-expand-hint">
+                        <span class="news-expand-icon">+</span>
+                    </div>
+                </div>
+                <div class="news-card-body">
+                    <div class="news-body-inner">
+                        <div class="news-body-text">
+                            {{ $item.body | markdownify }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</main>

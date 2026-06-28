@@ -1,0 +1,27 @@
+- title: "Breathe Lab Unveils Next-Generation Robotic Respiratory Monitoring System"
+  date: "2026-06-15"
+  image: "lab-robotics.png"
+  body: |
+    Breathe Laboratory is proud to announce the successful development and initial testing of its next-generation robotic respiratory monitoring system, a breakthrough that promises to reshape how clinicians track and respond to pulmonary conditions in real time.
+
+    The system integrates custom-built piezoelectric biosensors with a lightweight robotic arm module capable of autonomously positioning itself for optimal signal acquisition on patients. Unlike traditional wearable monitors, this approach eliminates the need for adhesive electrodes and offers continuous, non-invasive measurements of respiratory rate, tidal volume, and airflow dynamics.
+
+    "We set out to solve two long-standing problems: patient discomfort with prolonged monitoring and the signal noise that comes with movement artifacts," said Dr. Ridwan Wicaksono, head of Breathe Laboratory. "By combining robotics with advanced filtering algorithms, we've achieved a level of accuracy that rivals clinical spirometry — but in a fully passive, contactless format."
+
+    Early validation trials conducted at the Faculty of Engineering, Universitas Gadjah Mada, demonstrated a 96.3% correlation with gold-standard pulmonary function tests across 40 volunteer subjects. The team plans to expand testing to clinical environments at Sardjito General Hospital later this year, with regulatory submissions targeted for early 2027.
+
+    This work was supported by a research grant from the Indonesian Ministry of Education, Culture, Research, and Technology (Kemendikbudristek) and builds upon three years of foundational research in biomedical signal processing within the DTETI department.
+
+- title: "Breathe Lab Team Presents Award-Winning Research at IEEE EMBC 2026"
+  date: "2026-05-22"
+  image: "conference.png"
+  body: |
+    A delegation from Breathe Laboratory attended the 48th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC 2026), held in Milan, Italy, where they presented three peer-reviewed papers and received the Best Student Paper Award in the Biomedical Robotics track.
+
+    The award-winning paper, authored by graduate researcher Adhika Prasetya and supervised by Dr. Ridwan Wicaksono, introduced a novel closed-loop control algorithm for soft pneumatic actuators used in wearable rehabilitation devices. The study demonstrated that the proposed algorithm reduced overshoot by 42% and improved tracking accuracy by 31% compared to existing PID-based approaches, making it a significant step toward more responsive and comfortable assistive technology for stroke recovery patients.
+
+    In addition to the winning paper, the team also presented research on flexible strain sensors for gait analysis and a machine-learning pipeline for predicting obstructive sleep apnea severity from single-channel nasal airflow signals. Both papers generated substantial interest from international collaborators, with preliminary discussions initiated for joint research projects with teams from ETH Zurich and the Korea Advanced Institute of Science and Technology (KAIST).
+
+    "Conferences like EMBC are essential for benchmarking our work against the global state of the art," noted Dr. Wicaksono. "Returning with the Best Student Paper Award is a testament to the dedication and rigor of our students and the collaborative environment we've built at Breathe Lab."
+
+    The laboratory's participation was funded by a combination of university research grants and the DTETI international mobility program.

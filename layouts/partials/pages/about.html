@@ -1,0 +1,77 @@
+<div class="page-title-banner">
+    <h2>Laboratory Overview</h2>
+</div>
+
+<main class="container">
+    <section class="overview">
+        <div class="card text-card">
+            <p>The Breathe Laboratory is a cutting-edge biomedical research facility dedicated to advancing healthcare diagnostics and technology. Our research spans a wide range of innovative fields, including digital microscopy, Electrical Impedance Tomography (EIT), microfluidics, and microwave imaging. By integrating these technologies with comprehensive gait analysis, vital signs monitoring, and algae biotechnology, we aim to develop holistic solutions for modern medical and environmental challenges.</p>
+        </div>
+        <div class="card image-card">
+            <img src="/images/overview.png" alt="DTETI Building">
+        </div>
+    </section>
+
+    <section class="vision-mission">
+        <div class="vm-block">
+            <h3>Our Vision</h3>
+            <div class="card text-card text-center">
+                <p>To be a leading center of excellence in biomedical engineering, pioneering advanced technologies in microscopy, EIT, microfluidics, and microwave imaging that transform healthcare diagnostics and improve quality of life.</p>
+            </div>
+        </div>
+        <div class="vm-block">
+            <h3>Our Mission</h3>
+            <div class="card text-card text-center">
+                <p>To conduct rigorous academic research and develop practical applications in gait analysis, vital signs monitoring, and algae-based biological systems. We strive to foster interdisciplinary collaboration to create intelligent medical devices and sustainable healthcare solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="facilities">
+        <div class="section-header">
+            <h3>Our Facilities</h3>
+            <p>Equipped with state-of-the-art instruments to support advanced research<br>in health technology,
+                biosignal analysis, and medical device innovation.</p>
+        </div>
+        <div class="facilities-grid">
+            <div class="card facility-card">Microscope &amp; EIT Laboratory</div>
+            <div class="card facility-card">Microfluidic &amp; Microwave Facility</div>
+            <div class="card facility-card">Gait Analysis &amp; Biomechanics Lab</div>
+            <div class="card facility-card">Vital Signs &amp; Algae Bio Research Lab</div>
+        </div>
+    </section>
+
+    <section class="activities">
+        <div class="mosaic-grid">
+            {{ $activities := hugo.Data.about.activities }}
+            {{ $gridClasses := slice "img-1" "img-2" "img-3" "img-4" }}
+            {{ $idx := 0 }}
+
+            {{/* First two activity images (before the title card) */}}
+            {{ range first 2 $activities }}
+            {{ $class := index $gridClasses $idx }}
+            {{ if .image }}
+            <div class="mosaic-item {{ $class }}" style="background-image: url('/images/activities/{{ .image }}'); background-size: cover; background-position: center;"></div>
+            {{ else }}
+            <div class="mosaic-item {{ $class }}"></div>
+            {{ end }}
+            {{ $idx = add $idx 1 }}
+            {{ end }}
+
+            <div class="mosaic-item text-center card activity-title-card">
+                <h3>Our<br>Activities</h3>
+            </div>
+
+            {{/* Last two activity images (after the title card) */}}
+            {{ range after 2 $activities }}
+            {{ $class := index $gridClasses $idx }}
+            {{ if .image }}
+            <div class="mosaic-item {{ $class }}" style="background-image: url('/images/activities/{{ .image }}'); background-size: cover; background-position: center;"></div>
+            {{ else }}
+            <div class="mosaic-item {{ $class }}"></div>
+            {{ end }}
+            {{ $idx = add $idx 1 }}
+            {{ end }}
+        </div>
+    </section>
+</main>

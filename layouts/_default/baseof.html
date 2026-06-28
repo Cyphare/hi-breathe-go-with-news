@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Locale }}">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body>
+
+    <header id="site-header">
+        {{ partial "header.html" . }}
+    </header>
+
+    {{ block "main" . }}{{ end }}
+
+    <footer id="site-footer">
+        {{ partial "footer.html" . }}
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="/js/script.js"></script>
+
+</body>
+</html>
