@@ -1,0 +1,65 @@
+baseURL = "https://hi-breathelab.id/"
+defaultContentLanguage = "en"
+title = "Breathe Laboratory"
+
+[params]
+  description = "Biomedical Engineering Research Lab - DTETI FT UGM"
+  subtitle = "Department of Electrical Engineering and Information Engineering UGM"
+  contactEmail = "ridwan.wicaksono@ugm.ac.id"
+  address = """Breathe Laboratory
+Departemen Teknik Elektro dan Teknologi Informasi (DTETI)
+Fakultas Teknik, Universitas Gadjah Mada
+Jl. Grafika No. 2, Yogyakarta 55281"""
+  mapEmbed = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.09817750106!2d110.37073281532729!3d-7.768788994401142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a584a20076a59%3A0xc3c5180f68482ab2!2sDepartment%20of%20Electrical%20Engineering%20and%20Information%20Technology%2C%20UGM!5e0!3m2!1sen!2sid!4v1683000000000!5m2!1sen!2sid"
+
+[languages]
+  [languages.en]
+    locale = "en-US"
+
+[menus]
+  [[menus.main]]
+    name = "Research +"
+    pageRef = "/research/"
+    weight = 1
+  [[menus.main]]
+    name = "Team +"
+    pageRef = "/team/"
+    weight = 2
+  [[menus.main]]
+    name = "Publication +"
+    pageRef = "/publication/"
+    weight = 3
+  [[menus.main]]
+    name = "About +"
+    pageRef = "/about/"
+    weight = 4
+  [[menus.main]]
+    name = "Contact +"
+    pageRef = "/contact/"
+    weight = 5
+
+  [[menus.footer]]
+    name = "Research"
+    pageRef = "/research/"
+    weight = 1
+  [[menus.footer]]
+    name = "About"
+    pageRef = "/about/"
+    weight = 2
+  [[menus.footer]]
+    name = "Publication"
+    pageRef = "/publication/"
+    weight = 4
+  [[menus.footer]]
+    name = "Team"
+    pageRef = "/team/"
+    weight = 5
+  [[menus.footer]]
+    name = "Contact"
+    pageRef = "/contact/"
+    weight = 6
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
