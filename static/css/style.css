@@ -26,6 +26,11 @@ img {
     display: block;
 }
 
+@keyframes pageFadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
 body {
     /* Soft gradient background to match your design */
     background: linear-gradient(to bottom, #e4e9f0 0%, #f7f8fa 50%, #e4e9f0 100%);
@@ -34,6 +39,7 @@ body {
     min-height: 100vh;
     text-align: center;
     overflow-x: hidden;
+    animation: pageFadeIn 0.8s ease-out forwards;
 }
 
 /* --- Header Section --- */
@@ -53,7 +59,7 @@ header {
 
 .header-titles h1 {
     font-family: var(--font-serif);
-    font-size: 2.2rem;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
     color: var(--dark-blue);
     margin-bottom: 5px;
 }
@@ -103,7 +109,7 @@ nav a:hover {
 
 .welcome h2 {
     font-family: var(--font-serif);
-    font-size: 2.8rem;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
     font-weight: 400;
     color: var(--dark-blue);
 }
@@ -112,8 +118,8 @@ nav a:hover {
 .hero {
     position: relative;
     width: 100%;
-    height: 380px;
-    background-image: url('/images/overview.png');
+    height: clamp(250px, 40vh, 380px);
+    background-image: url('overview.png');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -137,7 +143,7 @@ nav a:hover {
     position: relative;
     background: rgba(255, 255, 255, 0.85);
     /* Off-white semi-transparent box */
-    padding: 50px 80px;
+    padding: clamp(25px, 5vw, 50px) clamp(25px, 8vw, 80px);
     border-radius: 60px;
     /* Wide pill shape */
     max-width: 900px;
@@ -147,7 +153,7 @@ nav a:hover {
 
 .hero-overlay-box h3 {
     font-family: var(--font-sans);
-    font-size: 2.2rem;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
     font-weight: 600;
     margin-bottom: 12px;
     color: var(--dark-blue);
@@ -218,7 +224,7 @@ nav a:hover {
 
 .page-title-banner h2 {
     font-family: var(--font-serif);
-    font-size: 2.2rem;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
     color: var(--dark-blue);
     font-weight: 600;
 }
@@ -289,7 +295,7 @@ nav a:hover {
 
 .section-header h3 {
     font-family: var(--font-sans);
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
     color: var(--dark-blue);
     margin-bottom: 10px;
 }
@@ -367,11 +373,6 @@ nav a:hover {
     grid-row: 3 / 4;
 }
 
-/* Reusable placeholder gradient for image slots without a real image */
-.placeholder-gradient {
-    background: linear-gradient(135deg, #e4e9f0 0%, #f7f8fa 50%, #d8e0e8 100%);
-}
-
 /* Adding some placeholder gradients to mimic your images */
 .img-1,
 .img-2,
@@ -390,7 +391,7 @@ footer {
 
 .footer-top h2 {
     font-family: var(--font-serif);
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     margin-bottom: 40px;
 }
 
@@ -476,7 +477,7 @@ footer {
 
 .section-title {
     font-family: var(--font-sans);
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 4vw, 1.8rem);
     color: var(--dark-blue);
     margin-bottom: 30px;
 }
@@ -573,7 +574,7 @@ footer {
 
 .team-cta-banner h2 {
     font-family: var(--font-serif);
-    font-size: 2.2rem;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
     margin-bottom: 15px;
     font-weight: 400;
 }
@@ -639,8 +640,8 @@ footer {
     border-radius: 30px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     display: flex;
-    gap: 60px;
-    padding: 60px;
+    gap: clamp(30px, 6vw, 60px);
+    padding: clamp(30px, 6vw, 60px);
     text-align: left;
 }
 
@@ -928,7 +929,7 @@ footer {
 .pub-card {
     background: var(--white);
     border-radius: 25px;
-    padding: 30px 40px;
+    padding: clamp(20px, 4vw, 30px) clamp(20px, 5vw, 40px);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -942,7 +943,7 @@ footer {
 }
 
 .pub-title {
-    font-size: 1.3rem;
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
     color: #000;
     margin-bottom: 5px;
 }
@@ -1128,149 +1129,6 @@ footer {
     color: var(--dark-blue);
 }
 
-/* --- News Page Styles --- */
-
-.news-main {
-    padding-bottom: 80px;
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-}
-
-.news-card {
-    background: var(--white);
-    border-radius: 25px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.news-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-}
-
-.news-card.expanded {
-    grid-column: 1;
-}
-
-.news-card.expanded:hover {
-    transform: none;
-}
-
-.news-card-preview {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.news-image {
-    width: 120px;
-    min-width: 120px;
-    height: 90px;
-    border-radius: 16px;
-    margin: 16px;
-    background-size: cover;
-    background-position: center;
-    background-color: #dbe4eb;
-}
-
-.news-preview-content {
-    padding: 16px 16px 16px 0;
-    flex: 1;
-    min-width: 0;
-}
-
-.news-title {
-    font-family: var(--font-sans);
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--dark-blue);
-    margin-bottom: 6px;
-    line-height: 1.45;
-    text-align: left;
-}
-
-.news-date {
-    font-family: var(--font-sans);
-    font-size: 1.1rem;
-    color: var(--text-grey);
-    font-weight: 400;
-    text-align: left;
-}
-
-.news-expand-hint {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    min-width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #f4f7f9;
-    margin-right: 16px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.news-expand-icon {
-    font-family: var(--font-sans);
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--dark-blue);
-    line-height: 1;
-    transition: transform 0.3s ease;
-    display: block;
-}
-
-.news-card.expanded .news-expand-icon {
-    transform: rotate(45deg);
-}
-
-.news-card.expanded .news-expand-hint {
-    background: var(--dark-blue);
-}
-
-.news-card.expanded .news-expand-icon {
-    color: var(--white);
-}
-
-/* Expandable body */
-.news-card-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease;
-}
-
-.news-card.expanded .news-card-body {
-    max-height: 2000px;
-}
-
-.news-body-inner {
-    padding: 0 28px 28px;
-}
-
-.news-body-text {
-    border-top: 1px solid #e4e9f0;
-    padding-top: 20px;
-}
-
-.news-body-text p {
-    font-size: 0.95rem;
-    line-height: 1.75;
-    color: var(--text-grey);
-    margin-bottom: 14px;
-    text-align: left;
-}
-
-.news-body-text p:last-child {
-    margin-bottom: 0;
-}
-
 /* --- Responsive Layout --- */
 @media (max-width: 1024px) {
     header {
@@ -1304,10 +1162,6 @@ footer {
     .pub-card {
         padding: 26px 28px;
     }
-
-    .news-grid {
-        gap: 24px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1322,16 +1176,6 @@ footer {
     .header-titles {
         text-align: center;
         max-width: 1000px;
-    }
-
-    .header-titles h1 {
-        font-size: 1.8rem;
-        line-height: normal;
-    }
-
-    .header-titles p {
-        font-size: 0.95rem;
-        line-height: normal;
     }
 
     nav ul {
@@ -1352,23 +1196,6 @@ footer {
     nav a {
         padding: 9px 18px;
         white-space: nowrap;
-    }
-
-    .welcome h2,
-    .page-title-banner h2,
-    .hero-overlay-box h3,
-    .team-cta-banner h2 {
-        font-size: 1.8rem;
-    }
-
-    .hero {
-        height: 300px;
-    }
-
-    .hero-overlay-box {
-        padding: 28px 24px;
-        border-radius: 28px;
-        width: calc(100% - 24px);
     }
 
     .cta-buttons {
@@ -1392,10 +1219,15 @@ footer {
     .project-grid-section,
     .pub-card,
     .pub-top-bar,
-    .pub-controls,
-    .search-container {
+    .pub-controls {
         grid-template-columns: 1fr;
         flex-direction: column;
+    }
+
+    .search-container {
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
     }
 
     .overview,
@@ -1406,22 +1238,13 @@ footer {
         display: flex;
     }
 
-    .news-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .news-card.expanded {
-        grid-column: 1;
-    }
-
     .overview,
     .vision-mission,
     .contact-card,
     .footer-content,
     .pub-card,
     .pub-top-bar,
-    .pub-controls,
-    .search-container {
+    .pub-controls {
         align-items: stretch;
     }
 
@@ -1474,10 +1297,14 @@ footer {
     }
 
     .search-input,
-    .search-confirm-btn,
-    .sort-confirm-btn,
     .control-btn {
         width: 100%;
+    }
+
+    .search-confirm-btn,
+    .sort-confirm-btn {
+        flex: 1;
+        min-width: 100px;
     }
 
     .sort-dropdown {
@@ -1533,12 +1360,7 @@ footer {
     }
 
     .hero {
-        height: 260px;
         margin-bottom: 36px;
-    }
-
-    .hero-overlay-box {
-        padding: 22px 18px;
     }
 
     .page-title-banner {
@@ -1592,11 +1414,6 @@ footer {
     }
 
     .pub-card {
-        padding: 20px 18px;
-    }
-
-    .pub-title {
-        font-size: 1.1rem;
     }
 
     .pub-authors {
@@ -1609,50 +1426,8 @@ footer {
     }
 
     .contact-card {
-        padding: 24px 18px;
     }
 
     .team-cta-banner {
-        padding: 36px 20px;
-    }
-
-    .news-grid {
-        gap: 18px;
-    }
-
-    .news-preview-content {
-        padding: 12px 12px 12px 0;
-    }
-
-    .news-body-inner {
-        padding: 0 16px 20px;
-    }
-
-    .news-image {
-        width: 80px;
-        min-width: 80px;
-        height: 60px;
-        border-radius: 12px;
-        margin: 12px;
-    }
-
-    .news-card {
-        border-radius: 18px;
-    }
-
-    .news-title {
-        font-size: 0.95rem;
-    }
-
-    .news-date {
-        font-size: 0.95rem;
-    }
-
-    .news-expand-hint {
-        margin-right: 12px;
-    }
-
-    .news-main {
-        margin-bottom: 42px;
     }
 }
